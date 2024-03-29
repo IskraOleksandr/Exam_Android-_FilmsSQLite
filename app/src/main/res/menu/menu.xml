@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/sunday"
+        android:title="add film"
+        android:onClick="onClick"/>
+    <item
+        android:id="@+id/monday"
+        android:title="add genre" />
+    <item
+        android:id="@+id/tuesday"
+        android:title="show all genre" />
+</menu>

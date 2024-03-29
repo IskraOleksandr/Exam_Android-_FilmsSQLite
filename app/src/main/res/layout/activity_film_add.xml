@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/first"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FilmAddActivity">
+
+    <EditText
+        android:id="@+id/filmYear"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yearLabel" />
+
+    <TextView
+        android:id="@+id/genreLabel"
+        android:layout_width="0dp"
+        android:layout_height="23dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:paddingLeft="3dp"
+        android:text="Genre:"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filmYear" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginRight="15dp"
+        android:text="Adding film"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/yearLabel"
+        android:layout_width="0dp"
+        android:layout_height="23dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="15dp"
+        android:paddingLeft="3dp"
+        android:text="Year:"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/director" />
+
+    <TextView
+        android:id="@+id/filmNameLabel"
+        android:layout_width="0dp"
+        android:layout_height="23dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:layout_marginRight="15dp"
+        android:text="Film name:"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/filmName"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filmNameLabel" />
+
+    <TextView
+        android:id="@+id/directorLabel"
+        android:layout_width="0dp"
+        android:layout_height="23dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="15dp"
+        android:paddingLeft="3dp"
+        android:text="Director:"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filmName" />
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/spinnerLabel"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="20dp"-->
+    <!--        android:layout_marginLeft="15dp"-->
+    <!--        android:layout_marginRight="15dp"-->
+    <!--        android:text="Age:"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/company" />-->
+
+    <EditText
+        android:id="@+id/director"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/directorLabel" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="15dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/genreLabel" />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="15dp"
+        android:onClick="onClickSave"
+        android:text="Save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
