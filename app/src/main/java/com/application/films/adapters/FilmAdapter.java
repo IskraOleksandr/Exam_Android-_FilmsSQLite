@@ -17,6 +17,9 @@ public class FilmAdapter extends BaseAdapter {
 
     FilmDao _dao = Unit.getFilmDao();
 
+    public void getAllItem(){
+        _dao.getAllItem();
+    }
     @Override
     public int getCount() {
         return _dao.getItemCount();

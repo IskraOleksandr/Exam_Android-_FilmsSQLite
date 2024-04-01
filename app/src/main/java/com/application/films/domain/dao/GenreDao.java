@@ -21,7 +21,9 @@ public class GenreDao  implements IDao<Genre> {
         _database = this._helper.getReadableDatabase();
         _cursor = _database.rawQuery("SELECT id, name FROM genre", new String[]{});
     }
-
+    public void getAllItem(){
+        _cursor = _database.rawQuery("SELECT id, name FROM genre", new String[]{});
+    }
     @Override
     public int getItemCount() {
         return _cursor.getCount();
@@ -56,8 +58,6 @@ public class GenreDao  implements IDao<Genre> {
 
     @Override
     public void addItem(Genre genre) {
-        Log.d("addItem", "item added");
-        //_helper = new FilmSQLiteHelper();
         _helper.getWritableDatabase().execSQL(
                 "INSERT INTO genre (name) VALUES (?)",
                 new String[]{genre.get_name()});
@@ -65,15 +65,12 @@ public class GenreDao  implements IDao<Genre> {
 
 
     public void updateItem(Genre genre) {
-        Log.d("addItem", "item added");
-        //_helper = new FilmSQLiteHelper();
         _helper.getWritableDatabase().execSQL(
                 "Update genre set name = ? Where id= ?",
                 new String[]{genre.get_name(), Integer.toString(genre.get_id())});
     }
 
     public void deleteItemById(int id){
-        //_helper = new FilmSQLiteHelper();если не сделать будет ошибка
         _helper.getWritableDatabase().execSQL(
                 "Delete from genre WHERE id = ?",
                 new String[]{Integer.toString(id)});

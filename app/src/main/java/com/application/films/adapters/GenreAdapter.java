@@ -17,7 +17,9 @@ import com.application.films.domain.models.Genre;
 public class GenreAdapter extends BaseAdapter {
 
     GenreDao _dao = Unit.getGenreDao();
-
+    public void getAllItem(){
+        _dao.getAllItem();
+    }
     @Override
     public int getCount() {
         return _dao.getItemCount();
@@ -38,11 +40,9 @@ public class GenreAdapter extends BaseAdapter {
     }
 
     public void addItem(Genre genre){
-        Log.d("addItem", "item added");
         _dao.addItem(genre);
     }
     public void updateItem(Genre genre){
-        Log.d("addItem", "item added");
         _dao.updateItem(genre);
     }
     public void delleteItemById(int id) {
@@ -51,9 +51,7 @@ public class GenreAdapter extends BaseAdapter {
 
     @Override
     public View getView(int pos, View view, ViewGroup viewGroup) {
-
         if(view == null){
-
             LayoutInflater inflater  = (LayoutInflater) viewGroup.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.genre_item, null);
         }

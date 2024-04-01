@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -20,14 +19,14 @@ import androidx.core.view.WindowInsetsCompat;
 import com.application.films.adapters.FilmAdapter;
 import com.application.films.adapters.GenreAdapter;
 import com.application.films.domain.models.Film;
-import com.application.films.domain.models.Genre;
 
-public class MainActivity extends AppCompatActivity {
+public class MainFilmActivity extends AppCompatActivity {
     private static FilmAdapter filmAdapter;
-    private static GenreAdapter genreAdapter;
+    MainFilmActivity activity;
     ListView listView;
-
-    MainActivity activity;
+    public static FilmAdapter getAdapter() {
+        return filmAdapter;
+    }
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -44,42 +43,30 @@ public class MainActivity extends AppCompatActivity {
         if (filmAdapter == null) {
             filmAdapter = new FilmAdapter();
         }
-        if (genreAdapter == null) {
-            genreAdapter = new GenreAdapter();
-        }
 
         listView = ((ListView) findViewById(R.id.lv_films));
-
+        filmAdapter.getAllItem();
         listView.setAdapter(filmAdapter);
 
         activity = this;
 
-
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                Intent intent = new Intent(activity, FilmEdit_DelActivity.class);
-                Film film = ((Film)parent.getItemAtPosition(position));
+                Intent intent = new Intent(activity, FilmActivity.class);
+                Film film = ((Film) parent.getItemAtPosition(position));
                 intent.putExtra("id", film.get_id());
                 startActivity(intent);
             }
         });
     }
 
-    public static GenreAdapter getGenreAdapter() {
-        return genreAdapter;
-    }
-
-    public static FilmAdapter getAdapter() {
-        return filmAdapter;
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0,1,1, "Add film");
-        menu.add(0,2,2, "Add genre");
-        menu.add(0,3,3,"Show all genre");
+        menu.add(0, 1, 1, "Add film");
+        menu.add(0, 2, 2, "Add genre");
+        menu.add(0, 3, 3, "Show all genre");
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -88,27 +75,24 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Intent intent;
         activity = this;
-        switch (item.getItemId()){
-            case 1://addFilm();
-                intent = new Intent(activity, FilmAddActivity.class);
+        switch (item.getItemId()) {
+            case 1:
+                intent = new Intent(activity, FilmActivity.class);
                 startActivity(intent);
                 break;
             case 2:
-                intent = new Intent(activity, GenreAddActivity.class);
+                intent = new Intent(activity, GenreActivity.class);
                 startActivity(intent);
                 break;
-            case 3:intent = new Intent(activity, MainGenreActivity.class);
+            case 3:
+                intent = new Intent(activity, MainGenreActivity.class);
                 startActivity(intent);
                 break;
-            default: throw new IllegalStateException("Unexpected value: " + item.getItemId());
+            default:
+                throw new IllegalStateException("Unexpected value: " + item.getItemId());
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    public void addFilm(){
-        activity = this;
-        Intent intent = new Intent(activity, FilmAddActivity.class);
-        startActivity(intent);
-    }
 }

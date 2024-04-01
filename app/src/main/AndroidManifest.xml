@@ -14,22 +14,16 @@
         android:theme="@style/Theme.FilmsSQLite"
         tools:targetApi="31">
         <activity
-            android:name=".GenreEdit_DelActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainGenreActivity"
             android:exported="false" />
         <activity
-            android:name=".FilmEdit_DelActivity"
+            android:name=".FilmActivity"
             android:exported="false" />
         <activity
-            android:name=".FilmAddActivity"
+            android:name=".GenreActivity"
             android:exported="false" />
         <activity
-            android:name=".GenreAddActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".MainFilmActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

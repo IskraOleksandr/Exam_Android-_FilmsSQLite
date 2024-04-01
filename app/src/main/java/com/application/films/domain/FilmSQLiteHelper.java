@@ -9,9 +9,6 @@ import com.application.films.FilmApp;
 public class FilmSQLiteHelper extends SQLiteOpenHelper {
     private static /*final*/ int DATABASE_VERSION = 6;
 
-    public void setDatabaseVersion( int databaseVersion) {
-        DATABASE_VERSION = databaseVersion;
-    }
 
     public FilmSQLiteHelper(){
         super (FilmApp.getApp(), "FilmDatabase", null, DATABASE_VERSION);
@@ -40,9 +37,6 @@ public class FilmSQLiteHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         if(oldVersion < newVersion){//oldVersion==2 && newVersion==3
-         /*   db.execSQL("Drop table if exists films");
-            db.execSQL("Drop table if exists genre");
-            onCreate(db);*/
             db.execSQL("INSERT INTO films (id_genre, title, year) VALUES "+
                     "(1, 'Звездные войны. Эпизод VII: Пробуждение силы', 2015)," +
                     "(1, 'Звездные войны. Эпизод VIII: Последние джедаи', 2017)," +
