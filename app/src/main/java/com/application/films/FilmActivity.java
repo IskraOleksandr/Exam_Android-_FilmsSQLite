@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,11 +50,13 @@ public class FilmActivity extends AppCompatActivity {
         if (arguments != null) {
             id = arguments.getInt("id");//получаем элемент по id
         }else {
-            id = 0;
             ((Button)findViewById(R.id.btnDel)).setVisibility(View.INVISIBLE);
+            ((TextView)findViewById(R.id.textView)).setText(getString(R.string.activ_title_film_ad));
+            id = 0;
         }
 
         if (id != 0) {
+            ((TextView)findViewById(R.id.textView)).setText(getString(R.string.activ_title_film_ed));
             ((Button)findViewById(R.id.btnDel)).setVisibility(View.VISIBLE);
             Film film = (Film) filmAdapter.getItemById(id);
             ((EditText) findViewById(R.id.filmName)).setText(film.get_title());

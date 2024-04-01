@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GenreEdit_DelActivity">
+    tools:context=".GenreActivity">
 
 
     <Button
@@ -16,7 +16,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginRight="15dp"
         android:onClick="onClick"
-        android:text="Save"
+        android:text="@string/btn_save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +29,7 @@
     android:layout_marginLeft="15dp"
     android:layout_marginTop="88dp"
     android:layout_marginRight="15dp"
-    android:text="Editing genre"
+    android:text="@string/activ_title_genre_ed"
     android:textAlignment="center"
     android:textSize="22sp"
     app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,7 @@
     android:layout_marginTop="20dp"
     android:textSize="16sp"
     android:layout_marginRight="15dp"
-    android:text="Genre name:"
+    android:text="@string/genre_name"
     app:layout_constraintHorizontal_bias="0.0"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
@@ -71,7 +71,7 @@
     android:layout_marginTop="12dp"
     android:layout_marginRight="15dp"
     android:onClick="onClick"
-    android:text="Delete"
+    android:text="@string/btn_delete"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.448"
     app:layout_constraintStart_toStartOf="parent"

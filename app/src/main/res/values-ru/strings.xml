@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FilmsSQLite</string>
+    <string name="add_film">Добавить фильм</string>
+    <string name="add_genre">Добавить жанр</string>
+    <string name="all_films">Фильмы</string>
+    <string name="all_genres">Жанры</string>
+    <string name="film_name">Название фильма:</string>
+    <string name="film_director">Режиссер:</string>
+    <string name="film_year">Год выпуска:</string>
+    <string name="film_genre">Жанр:</string>
+    <string name="genre_name">Название жанра:</string>
+
+    <string name="btn_save">Сохранить</string>
+    <string name="btn_add">Добавить</string>
+    <string name="btn_delete">Удалить</string>
+    <string name="activ_title_film_ad">Добавление фильма</string>
+    <string name="activ_title_film_ed">Редактирование и удаление фильма</string>
+    <string name="activ_title_genre_ad">Добавление жанра</string>
+    <string name="activ_title_genre_ed">Редактирование и удаление жанра</string>
 </resources>

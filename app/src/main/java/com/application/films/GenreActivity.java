@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,11 +39,13 @@ public class GenreActivity extends AppCompatActivity {
         if (arguments != null) {
             id = arguments.getInt("id");
         }else {
-            id = 0;
             ((Button)findViewById(R.id.btnDel)).setVisibility(View.INVISIBLE);
+            ((TextView)findViewById(R.id.textView)).setText(getString(R.string.activ_title_genre_ad));
+            id = 0;
         }
 
         if (id != 0) {//получаем элемент по id
+            ((TextView)findViewById(R.id.textView)).setText(getString(R.string.activ_title_genre_ed));
             Genre genre = (Genre) genreAdapter.getItemById(id);
             ((EditText) findViewById(R.id.filmName)).setText(genre.get_name());
         }

@@ -63,9 +63,9 @@ public class MainGenreActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, 1, 1, "Add film");
-        menu.add(0, 2, 2, "Add genre");
-        menu.add(0, 3, 3, "Show all films");
+        menu.add(0, 1, 1, getResources().getString(R.string.add_film));
+        menu.add(0, 2, 2, getResources().getString(R.string.add_genre));
+        menu.add(0, 3, 3, getResources().getString(R.string.all_films));
 
         return super.onCreateOptionsMenu(menu);
     }

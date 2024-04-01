@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">FilmsSQLite</string>
+    <string name="add_film">Add film</string>
+    <string name="add_genre">Add genre</string>
+    <string name="all_films">Films</string>
+    <string name="all_genres">Genres</string>
+    <string name="film_name">Film name:</string>
+    <string name="film_director">Director:</string>
+    <string name="film_year">Year</string>
+    <string name="film_genre">Genre</string>
+    <string name="genre_name">Genre name</string>
+
+    <string name="btn_save">Save</string>
+    <string name="btn_add">Add</string>
+    <string name="btn_delete">Delete</string>
+    <string name="activ_title_film_ad">Adding film</string>
+    <string name="activ_title_film_ed">Editing and deleting film</string>
+    <string name="activ_title_genre_ad">Adding genre</string>
+    <string name="activ_title_genre_ed">Editing and deleting genre</string>
 </resources>
