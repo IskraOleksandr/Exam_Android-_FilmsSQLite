@@ -61,7 +61,7 @@ public class FilmActivity extends AppCompatActivity {
             Film film = (Film) filmAdapter.getItemById(id);
             ((EditText) findViewById(R.id.filmName)).setText(film.get_title());
             ((EditText) findViewById(R.id.filmYear)).setText(film.get_year() + "");
-//            spinner.set();
+            ((EditText) findViewById(R.id.film_director)).setText(film.get_director());
         }
     }
 
@@ -69,15 +69,15 @@ public class FilmActivity extends AppCompatActivity {
         FilmAdapter filmAdapter = MainFilmActivity.getAdapter();
         if (v.getId()==R.id.btn) {
             String filmName = ((EditText) findViewById(R.id.filmName)).getText().toString();
-            String director = ((EditText) findViewById(R.id.director)).getText().toString();
+            String director = ((EditText) findViewById(R.id.film_director)).getText().toString();
             int year = Integer.parseInt(((EditText) findViewById(R.id.filmYear)).getText().toString());
 
             Genre genre = ((Genre) ((Spinner) findViewById(R.id.spinner)).getSelectedItem());
 
             if (id > 0) {
-                filmAdapter.updateItem(new Film(id, filmName, genre.get_name(), year));
+                filmAdapter.updateItem(new Film(id, filmName, director, genre.get_name(), year));
             } else {
-                filmAdapter.addItem(new Film(id, filmName, genre.get_name(), year));
+                filmAdapter.addItem(new Film(id, filmName,director, genre.get_name(), year));
             }
         }else if (v.getId() == R.id.btnDel){
             filmAdapter.delleteItemById(id);

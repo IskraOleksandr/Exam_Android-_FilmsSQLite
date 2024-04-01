@@ -7,24 +7,25 @@ public class Film {
 
     private int _id;
     private String _title;
-//    private String _director;
+    private String _director;
     private String _genre;
     private int _year;
 
-    public Film(int id, String title, String genre, int year) {
+    public Film(int id, String title,String director, String genre, int year) {
 
         _id = id;
         _title = title;
+        _director = director;
         _genre = genre;
         _year = year;
     }
     @SuppressLint("Range")
     public Film(Cursor cursor){
-
         _id = cursor.getInt(cursor.getColumnIndex("id"));
         _title = cursor.getString(cursor.getColumnIndex("title"));
         _year = cursor.getInt(cursor.getColumnIndex("year"));
-        _genre = cursor.getString(cursor.getColumnIndex("genre"));;
+        _genre = cursor.getString(cursor.getColumnIndex("genre"));
+        _director = cursor.getString(cursor.getColumnIndex("director"));
     }
 
     public int get_id() {
@@ -38,6 +39,7 @@ public class Film {
     public String get_genre() {
         return _genre;
     }
+    public String get_director(){return _director;}
 
     public int get_year() {
         return _year;

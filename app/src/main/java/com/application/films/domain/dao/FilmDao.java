@@ -22,13 +22,13 @@ public class FilmDao implements IDao<Film> {
         this._helper = _helper;
         _database = this._helper.getReadableDatabase();
         _cursor = _database.rawQuery(
-                "SELECT films.id, title, name AS genre, year FROM films INNER JOIN genre ON genre.id = id_genre",
+                "SELECT films.id, title, director, name AS genre, year FROM films INNER JOIN genre ON genre.id = id_genre",
                 new String[]{});
     }
 
     public void getAllItem(){
         _cursor = _database.rawQuery(
-                "SELECT films.id, title, name AS genre, year FROM films INNER JOIN genre ON genre.id = id_genre",
+                "SELECT films.id, title, director, name AS genre, year FROM films INNER JOIN genre ON genre.id = id_genre",
                 new String[]{});
     }
 
@@ -53,9 +53,8 @@ public class FilmDao implements IDao<Film> {
 
     @Override
     public Film getItemById(int id) {
-        //_helper = new FilmSQLiteHelper();если не сделать будет ошибка
         Cursor cursor = _helper.getReadableDatabase().rawQuery(
-                "SELECT films.id, title, name AS genre, year FROM films INNER JOIN genre ON genre.id = id_genre WHERE films.id=?",
+                "SELECT films.id, title,director, name AS genre, year FROM films INNER JOIN genre ON genre.id = id_genre WHERE films.id=?",
                 new String[]{Integer.toString(id)}
         );
         if (cursor.getCount() > 0 && cursor.moveToFirst()) {
@@ -66,28 +65,23 @@ public class FilmDao implements IDao<Film> {
 
     @Override
     public void addItem(Film film) {
-        //Log.d("addItem", film.get_title());
-        //_helper = new FilmSQLiteHelper();если не сделать будет ошибка
         _helper.getWritableDatabase().execSQL(
-                "INSERT INTO films (title, year, id_genre) VALUES (?,?, " +
+                "INSERT INTO films (title,director, year, id_genre) VALUES (?,?,?, " +
                         "(SELECT id from genre WHERE name = ?))",
-                new String[]{film.get_title(), Integer.toString(film.get_year()), film.get_genre()});
+                new String[]{film.get_title(), film.get_director(), Integer.toString(film.get_year()), film.get_genre()});
 
     }
 
     public void deleteItemById(int id){
-        //_helper = new FilmSQLiteHelper();если не сделать будет ошибка
         _helper.getWritableDatabase().execSQL(
                 "Delete from films WHERE id = ?",
                 new String[]{Integer.toString(id)});
     }
 
     public void updateItem(Film film) {
-//        Log.d("updateItem", "updateItem");
-        //_helper = new FilmSQLiteHelper();если не сделать будет ошибка
         _helper.getWritableDatabase().execSQL(
-                "Update films set title = ?, year = ?, id_genre=" + "(SELECT id from genre WHERE name = ?)"
+                "Update films set title = ?,director =?, year = ?, id_genre=" + "(SELECT id from genre WHERE name = ?)"
                 +"WHERE id = ?",
-                new String[]{film.get_title(), Integer.toString(film.get_year()), film.get_genre(), Integer.toString(film.get_id())});
+                new String[]{film.get_title(), film.get_director(), Integer.toString(film.get_year()), film.get_genre(), Integer.toString(film.get_id())});
     }
 }
